@@ -1,0 +1,36 @@
+/*Insert Data into a MYSQL Database*/
+package jdbcDemo;
+import java.sql.*;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			//1. Get a connection to database
+			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3307/Lagerverwaltung", "root","");
+			
+			//2. Create statement object
+			Statement myStmt = myConn.createStatement();
+			
+			//3. Execute SQL Query
+			
+			// Insert Data into a MYSQL Database
+			String sql = "Insert into hrwadressbuch"
+						+"( Vorname, Nachname, Telefon, Fachbereich,  Position)"
+						+"VALUES('Nina', 'Allwermann', '0049 208 88254 180', 'Dezernat I', 'Personalservice')";
+			myStmt.executeUpdate(sql);
+			System.out.println("Insert Complet");
+			
+				
+		}
+		catch(Exception exc) {
+			exc.printStackTrace();
+		}
+		
+	
+
+	}
+
+}
+			
